@@ -1,9 +1,14 @@
 async function renderDicePool(actor) {
-  const dicePool = actor.system.dicepool || [];
+  const dicePool = actor.system.dicepool || {};
+  const maxDice = actor.system.dice_pool_maximum?.value || 0;
+  const sortedKeys = Object.keys(dicePool).sort((a, b) => Number(a) - Number(b));
+  const limitedDicePool = {};
+  sortedKeys.slice(0, maxDice).forEach(key => {
+    limitedDicePool[key] = dicePool[key];
+  });  
   const template = `{{> dicePool dicepool=dicepool }}`;
   const compiledTemplate = Handlebars.compile(template);
-  const html = compiledTemplate({ dicepool: dicePool });
-  return compiledTemplate({ dicepool: dicePool });
+  return compiledTemplate({ dicepool: limitedDicePool });
 }
 
 export class AHRPGCombatTracker extends CombatTracker {
