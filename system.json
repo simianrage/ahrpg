@@ -37,8 +37,8 @@
   "packs": [],
   "packFolders": [],
   "socket": false,
-  "manifest": "https://github.com/simianrage/ahrpg/main/system.json",
-  "download": "https://github.com/simianrage/ahrpg/releases/ahrpg.1.0.0.zip",
+  "manifest": "https://github.com/simianrage/ahrpg/blob/main/system.json",
+  "download": "https://github.com/simianrage/ahrpg/blob/releases/ahrpg.1.0.0.zip",
   "background": "systems/ahrpg/assets/anvil-impact.png",
   "gridDistance": 5,
   "gridUnits": "ft"
