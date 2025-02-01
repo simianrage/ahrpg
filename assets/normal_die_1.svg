@@ -1,0 +1,9 @@
+<svg width="64" height="64" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+  <!-- Rounded square for the die body -->
+  <rect x="4" y="4" width="56" height="56"
+        rx="8" ry="8"
+        fill="#4D80FF" stroke="#333" stroke-width="2" />
+  
+  <!-- Single white pip in center -->
+  <circle cx="32" cy="32" r="5" fill="#fff" />
+</svg>

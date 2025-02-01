@@ -1,0 +1,19 @@
+<svg width="64" height="64"
+     viewBox="0 0 64 64"
+     xmlns="http://www.w3.org/2000/svg">
+  <!-- Outer circle: tan color with a dark stroke -->
+  <circle cx="32" cy="32" r="30"
+          fill="#e4c49a"
+          stroke="#333"
+          stroke-width="2" />
+  
+  <!-- Three diagonal slash marks (red lines), parallel. 
+       Each line goes from (x1,y1) near top to (x2,y2) near bottom. 
+       stroke-linecap="round" for a slightly more "slash-like" look. -->
+  <line x1="24" y1="14" x2="30" y2="50"
+        stroke="#c00" stroke-width="5" stroke-linecap="round" />
+  <line x1="32" y1="14" x2="38" y2="50"
+        stroke="#c00" stroke-width="5" stroke-linecap="round" />
+  <line x1="40" y1="14" x2="46" y2="50"
+        stroke="#c00" stroke-width="5" stroke-linecap="round" />
+</svg>

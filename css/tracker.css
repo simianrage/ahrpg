@@ -1,0 +1,62 @@
+.ahrpg-combat-tracker {
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 6px;
+}
+
+.tracker-groups {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.tracker-group {
+  background: #9d9292; /* Slightly lighter than the tab background */
+  margin: 1px; /* Margin on all sides */
+  padding: 1px; /* Padding inside the group */
+  border-radius: 5px; /* Slightly rounded edges */
+  text-align: center;
+  font-weight: 700;
+  flex-basis: 100%;
+}
+
+.group-members {d
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.member {
+  background: #b3a8a8; /* Slightly different color for contrast */
+  border: 1px solid #8a7d7d; /* Subtle border color */
+  padding: 6px;
+  border-radius: 4px;
+  margin-bottom: 2px; /* Space between members */
+}
+.member strong {
+  display: block; /* Ensures it's on a new line */
+  color: #ffffff; /* White for contrast */
+  margin-bottom: 2px;
+}
+#combat-tracker .dice-pool {
+  display: flex;
+  flex-wrap: wrap; /* Allow wrapping to new rows */
+  gap: 4px; /* Small spacing between dice */
+  justify-content: flex-start; /* Align items to the left */
+  padding-top: 3px; /* Add slight padding above */
+}
+
+#combat-tracker .dice-slot {
+  width: 24px; /* Adjust size to match dice icon dimensions */
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#combat-tracker .dice-slot img {
+  width: 20px;
+  height: 20px;
+  border: none;
+  padding: 0;
+  margin: 0;
+}

@@ -1,0 +1,45 @@
+{
+  "id": "ahrpg",
+  "title": "Arkham Horror RPG",
+  "description": "The Arkham Horror RPG system for FoundryVTT",
+  "authors": [
+    {
+      "name": "Alec",
+      "discord": "simianrage"
+    }
+  ],
+  "url": "https://github.com/ashaner05/ahrpg",
+  "license": "LICENSE.txt",
+  "readme": "README.md",
+  "bugs": "",
+  "changelog": "CHANGELOG.md",
+  "media": [
+    {
+      "type": "setup",
+      "url": "systems/ahrpg/assets/anvil-impact.png",
+      "thumbnail": "systems/ahrpg/assets/anvil-impact.png"
+    }
+  ],
+  "version": "1.0.0",
+  "compatibility": {
+    "minimum": 12,
+    "verified": "12.331"
+  },
+  "esmodules": ["module/ahrpg.mjs"],
+  "styles": ["css/ahrpg.css", "css/ahrpg_actor.css", "css/tracker.css"],
+  "languages": [
+    {
+      "lang": "en",
+      "name": "English",
+      "path": "lang/en.json"
+    }
+  ],
+  "packs": [],
+  "packFolders": [],
+  "socket": false,
+  "manifest": "https://github.com/ashaner05/ahrpg/blob/main/system.json",
+  "download": "This must link to a .zip file of the current version",
+  "background": "systems/ahrpg/assets/anvil-impact.png",
+  "gridDistance": 5,
+  "gridUnits": "ft"
+}

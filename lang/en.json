@@ -1,0 +1,48 @@
+{
+  "AHRPG": {
+    "Skills": {
+      "agi": { "long": "Agility", "abbr": "agi" },
+      "ath": { "long": "Athletics", "abbr": "ath" },
+      "wit": { "long": "Wits", "abbr": "wit" },
+      "pre": { "long": "Presence", "abbr": "pre" },
+      "int": { "long": "Intuition", "abbr": "int" },
+      "kno": { "long": "Knowledge", "abbr": "kno" },
+      "res": { "long": "Resolve", "abbr": "res" },
+      "mel": { "long": "Melee Combat", "abbr": "mel" },
+      "ran": { "long": "Ranged Combat", "abbr": "ran" },
+      "lor": { "long": "Lore", "abbr": "lor" }
+    },
+    "SheetLabels": {
+      "Actor": "AHRPG Actor Sheet",
+      "Item": "AHRPG Item Sheet"
+    },
+    "Item": {
+      "Knack": {
+        "Name": "Knack",
+        "SpellLVL": "Level {level} Spells",
+        "AddLVL": "Add LVL {level}"
+      },
+      "Archetype": "Archetype",
+      "Personality": "Personality"
+    },
+    "Effect": {
+      "Source": "Source",
+      "Toggle": "Toggle Effect",
+      "Temporary": "Temporary Effects",
+      "Passive": "Passive Effects",
+      "Inactive": "Inactive Effects"
+    }
+  },
+
+  "TYPES": {
+    "Actor": {
+      "character": "Character",
+      "npc": "NPC"
+    },
+    "Item": {
+      "item": "Item",
+      "feature": "Feature",
+      "spell": "Spell"
+    }
+  }
+}

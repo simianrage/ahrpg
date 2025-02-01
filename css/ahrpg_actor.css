@@ -1,0 +1,608 @@
+/* Generic resets */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Georgia, serif;
+  background: #faf9f5; /* Light paper color */
+  color: #333;
+  padding: 1rem;
+}
+
+/* Container for entire sheet */
+.sheet-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 1rem 2rem;
+  background: #fff;
+  border: 2px solid #ccc;
+  box-shadow: 0 0 20px rgba(0,0,0,0.1);
+}
+
+/* Top Section (Character/Player info) */
+.top-section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.top-field-group {
+  display: flex;
+  flex-direction: column;
+  min-width: 220px;
+}
+
+.top-field-group label {
+  font-weight: bold;
+  font-size: 0.9rem;
+  margin-bottom: 0.3rem;
+}
+
+.top-field-group input {
+  padding: 0.2rem;
+  border: 1px solid #bbb;
+  border-radius: 3px;
+}
+
+/* Skills and Insight Section */
+.skills-insight-section {
+  display: flex;
+  gap: 2rem;
+  margin: 1rem 0;
+}
+
+.skills-panel,
+.insight-panel {
+  flex: 1;
+}
+
+.skills-panel h2,
+.insight-panel h2 {
+  text-decoration: underline;
+  margin-bottom: 0.5rem;
+}
+
+/* Insight/Description Panel */
+.insight-panel {
+  flex: 1; /* Ensures it takes up the same space as other panels */
+  min-width: 400px; /* Matches the minimum width of other sections */
+  max-width: 400px; /* Prevents it from being too wide */
+  margin-right: 2rem; /* Adds spacing before the dice section */
+}
+
+.insight-panel textarea {
+  width: 100%; /* Full width within the panel */
+  resize: vertical; /* Allows resizing vertically but not horizontally */
+  border: 1px solid #bbb;
+  border-radius: 3px;
+  padding: 0.5rem;
+  font-size: 0.9rem;
+}
+/* Skills: two columns, each with 5 skill rows + a header row */
+.skills-columns {
+  display: flex;
+  gap: 2rem;
+}
+
+.skills-col {
+  flex: 1;
+}
+
+.skill-row {
+  display: flex;
+  align-items: center;
+  margin: 0.4rem 0;
+}
+
+.skill-label {
+  width: 120px;
+  font-weight: bold;
+}
+
+/* Header row in each column for the “Max” label */
+.header-row .skill-label {
+  /* Blank so the circles line up */
+  visibility: hidden; 
+}
+
+.circle-group {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Circle Input styles */
+.circle-input {
+  display: inline-block;
+  position: relative;
+  border: 2px solid #666;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.circle-input input {
+  width: 100%;
+  height: 100%;
+  border: none;
+  text-align: center;
+  background: transparent;
+  font-family: inherit;
+  font-size: 0.9rem;
+  outline: none;
+}
+
+/* Larger circle (left) */
+.circle-input-lg {
+  width: 40px;
+  height: 40px;
+}
+
+/* Smaller circle (right) */
+.circle-input-sm {
+  width: 25px;
+  height: 25px;
+}
+
+/* Header "Max" styling */
+.circle-header {
+  display: inline-block;
+  text-align: center;
+  width: 40px; /* default; can adjust */
+}
+
+.circle-header-lg {
+  width: 40px;
+}
+
+.circle-header-sm {
+  width: 25px;
+}
+
+/* Insight panel styles */
+.insight-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.insight-row label {
+  font-weight: bold;
+}
+
+.insight-row input {
+  width: 80px;
+  padding: 0.2rem;
+  border: 1px solid #bbb;
+  border-radius: 3px;
+}
+
+.personality-trait {
+  margin-bottom: 0.5rem;
+}
+
+.personality-trait label {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 0.3rem;
+}
+
+.personality-trait input {
+  width: 100%;
+  padding: 0.2rem;
+  border: 1px solid #bbb;
+  border-radius: 3px;
+}
+/* The multiline textarea for Personality Trait */
+#personality {
+  width: 100%;
+  resize: vertical;       /* user can still resize if they want */
+  border: 1px solid #bbb;
+  border-radius: 3px;
+  padding: 0.2rem;
+  min-height: 2.2rem;     /* ensures it's about twice as tall as a normal input */
+}
+
+.knacks-section {
+  margin: 1rem 0;
+}
+
+.knacks-section h2 {
+  text-decoration: underline;
+  margin-bottom: 0.5rem;
+}
+
+.knack-row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+/* Give labels a consistent width so they line up vertically */
+.knack-row label {
+  width: 70px;         /* Adjust as needed */
+  font-weight: bold;
+  margin-right: 0.5rem;
+}
+
+/* Make the textarea fill the remaining space on the row */
+.knack-row textarea {
+  flex: 1;
+  resize: vertical;
+  border: 1px solid #bbb;
+  border-radius: 3px;
+  padding: 0.3rem;
+  min-height: 1.5rem;  /* Enough height for a single line */
+}
+
+/* Weapons & Injuries Container */
+.weapons-injuries-section {
+  display: flex;
+  gap: 2rem;
+  margin-top: 1rem;
+  align-items: stretch; /* ensures both panels match overall height */
+}
+
+.weapons-panel {
+  flex: 0 0 60%;
+  display: flex;
+  flex-direction: column;
+}
+
+.injuries-panel {
+  flex: 0 0 40%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* The injuries text area expands to match the weapons' total height */
+.injuries-panel textarea {
+  flex: 1;
+  resize: vertical;
+  border: 1px solid #bbb;
+  border-radius: 3px;
+  padding: 0.5rem;
+}
+
+/* Headings */
+.weapons-panel h2,
+.injuries-panel h2 {
+  text-decoration: underline;
+  margin-bottom: 0.5rem;
+}
+
+/* Each weapon block */
+.weapon-item {
+  margin-bottom: 1rem;
+  border: 1px solid #ccc; /* optional decorative border */
+  padding: 0.5rem;
+  border-radius: 4px;
+  background: #fafafa;
+}
+
+/* Each "row" inside a weapon item. 
+   flex-wrap: nowrap => prevents wrapping and keeps everything on one line. */
+.weapon-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+  margin-bottom: 0.5rem;
+}
+
+/* By default, minimal margin after labels */
+.weapon-row label {
+  font-weight: bold;
+  margin-right: 0.3rem;
+}
+
+/* Common style for text inputs/textarea */
+.weapon-row input,
+.weapon-row textarea {
+  border: 1px solid #bbb;
+  border-radius: 3px;
+  padding: 0.2rem 0.3rem;
+  margin-right: 1rem; /* default spacing to the right of inputs */
+}
+
+/* Full-width name + special rules */
+.weapon-name,
+.weapon-rules {
+  flex: 1; /* fill available space on that row */
+}
+
+/* Skill: wide enough for "Knowledge" or similar */
+.skill-input {
+  width: 8em;
+  margin-right: 1rem; /* spacing from next label or field */
+}
+
+/* Damage + Injury Rating: single-digit => narrower fields */
+.damage-input,
+.injury-input {
+  width: 2em;
+  text-align: center;
+  margin-right: 1rem;
+}
+
+/* Range: moderate width */
+.range-input {
+  width: 5em;
+  margin-right: 1rem;
+}
+
+/* Ammunition circles must stay on the same line, no wrap */
+.ammo-circles {
+  display: inline-flex;  /* keep circles in a row */
+  gap: 0.3rem;           /* small space between circles */
+  white-space: nowrap;
+}
+
+/* Each ammo circle (blank for now) */
+.ammo-circles .circle {
+  width: 18px;
+  height: 18px;
+  border: 2px solid #666;
+  border-radius: 50%;
+  background: #fff;
+  cursor: pointer;
+}
+
+.ammo-circles .circle:hover {
+  background: #eee;
+}
+
+.ammo-circles .circle.spent {
+  background-color: red;
+}
+/* ================================== */
+/*         DICE SECTION STYLES        */
+/* ================================== */
+
+.dice-section {
+  /* No heading; just a row of diamonds */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 1rem; /* space before the next section */
+}
+
+/* The row containing diamonds + button containers */
+.diamond-row {
+  display: flex;
+  align-items: center;  /* vertically center the diamonds and the button area */
+  justify-content: center;
+  gap: 25px;            /* spacing between each diamond slot (and then the buttons) */
+  margin-top: 0.5rem;
+}
+
+/* Container for ALL button columns (2 columns total) */
+.dice-buttons-container {
+  display: flex;        /* place columns side by side */
+  flex-direction: row;  /* each column is stacked, but columns go left->right */
+  gap: 1rem;            /* space between the two button columns */
+}
+
+/* One column of two stacked buttons */
+.dice-buttons-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;  /* center horizontally within each column */
+  gap: 0.5rem;          /* vertical space between the two buttons */
+}
+
+/* Button style:
+   - same width, gray background, slightly darker border, bold text, rounded corners */
+.dice-button {
+  width: 80px;                /* fixed width to ensure all are identical */
+  background-color: #ccc;     /* light gray */
+  border: 2px solid #999;     /* slightly darker border */
+  border-radius: 6px;         /* small rounded corners */
+  color: #333;                /* text color */
+  font-weight: bold;
+  padding: 0.5rem 0;         /* vertical spacing; 0 left/right to keep uniform width */
+  cursor: pointer;            /* pointer on hover */
+  text-align: center;         /* center text */
+}
+
+/* Optional hover effect */
+.dice-button:hover {
+  background-color: #bbb;
+}
+/* Container for each "slot" => holds two overlapping diamonds */
+.diamond-slot {
+  position: relative;
+  width: 70px; 
+  height: 70px;
+}
+
+/* The bigger, dark diamond behind */
+.diamond-bg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 50px;
+  height: 50px;
+  background: #222;                /* dark diamond corners */
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+/* The smaller, white diamond in front */
+.diamond-fg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 42px;                     /* smaller => dark corners still visible */
+  height: 42px;
+  background: #fff;                /* white center */
+  border: 2px solid #222;          /* thick dark border */
+  box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+/* The container for your future dice icon (image, text, etc.) */
+.dice-icon {
+  /* fill the white diamond, but remain upright */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: auto;
+  height: auto;
+  transform: translate(-50%, -50%) rotate(-45deg);
+  /* rotate(-45deg) so any child image/text is upright rather than angled */
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* For now, it's empty. Later you can insert an <img>, etc. */
+}
+
+/* General Reset for Images */
+.dice-icon img, .dietype-icon {
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Larger Dice Icons */
+.dice-image {
+  width: 60px; /* Adjust size to ensure overlap */
+  height: 60px;
+  position: relative;
+  max-width: none; /* Prevent constraints */
+  max-height: none;
+  display: block;
+  z-index: 2; /* Ensure it is above the diamond background */
+}
+
+/* Dietype Indicator (Small Icon) */
+.dietype-indicator {
+  position: absolute;
+  bottom: -10px; /* Adjust spacing below the slot */
+  right: 10px; /* Align to the right of the slot */
+  z-index: 3; /* Ensure it’s visible above other elements */
+}
+
+.dietype-icon {
+  width: 24px; /* Small icon size */
+  height: 24px;
+  opacity: 0.7; /* Slightly transparent for subtlety */
+}
+
+
+.rollable-dice-icon {
+  width: 48px;
+  height: 48px;
+  cursor: pointer;
+  box-sizing: border-box; /* Ensures borders don't affect the element size */
+  border: none; /* No border when unselected */
+}
+
+/* Highlight (selected state) */
+.rollable-dice-icon.highlight {
+  outline: 4px solid #ffcc00; /* Gold border without changing the size */
+  outline-offset: -4px; /* Ensures the border hugs the icon closely */
+}
+
+.dice-roll-message {
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+}
+
+.dice-roll-message .dice-results-section {
+  margin-top: 10px;
+}
+
+.dice-roll-message .dice-icons {
+  display: flex;
+  gap: 5px;
+  margin-top: 5px;
+  flex-wrap: wrap;
+}
+
+.dice-roll-message img.dice-result-icon {
+  width: 30px;
+  height: 30px;
+}
+
+.dialog .heal-section {
+  margin-bottom: 1rem;
+  display: flex;
+  justify-content: center; /* Center the buttons horizontally */
+  flex-wrap: nowrap; /* Prevent wrapping to the next line */
+  gap: 0.5rem; /* Space between buttons */
+}
+
+.dialog .heal-section p {
+  text-align: center;
+  font-style: italic;
+  color: #666;
+}
+
+.dialog .heal-button {
+  padding: 0.3rem 0.6rem;
+  font-size: 0.9rem;
+  border: 1px solid #aaa;
+  border-radius: 4px;
+  background-color: #f0f0f0;
+  cursor: pointer;
+  flex: 0; /* Ensure buttons do not stretch */
+}
+
+.dialog .heal-button.selected {
+  background-color: #4caf50;
+  color: #fff;
+  border-color: #388e3c;
+}
+
+.dialog .modal-buttons {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.dialog #apply-heal-button,
+.dialog #cancel-heal-button {
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  border: 1px solid #999;
+  border-radius: 4px;
+  background-color: #eee;
+  cursor: pointer;
+  flex: 1; /* Stretch the Apply and Cancel buttons */
+}
+
+.dialog #apply-heal-button:hover {
+  background-color: #4caf50;
+  color: white;
+}
+
+.dialog #cancel-heal-button:hover {
+  background-color: #f44336;
+  color: white;
+}
+
+.ahrpg-dialog-button-container {
+  text-align: center;
+  .buttons {
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+    flex-wrap: wrap;
+  }
+  .button {
+    flex: 0 0 auto;
+    width: auto;
+    padding: 8px 15px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    background: #eee;
+    cursor: pointer;  
+  }
+}

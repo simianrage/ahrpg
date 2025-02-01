@@ -1,0 +1,349 @@
+<form class="{{cssClass}} {{actor.type}} flexcol" autocomplete="off">
+  <div class="sheet-container">
+    <!-- Top Section -->
+    <div class="top-section">
+      <div class="top-field-group">
+        <label for="char-name">Character Name:</label>
+        <input type="text" id="char-name" name="actor.name" value="{{actor.name}}">
+      </div>
+      <div class="top-field-group">
+        <label for="character-archetype">Archetype:</label>
+        <select id="character-archetype" name="system.characterInfo.archetype">
+          {{#each config.archetypes as |archetype key|}}
+            <option value="{{key}}" {{#if (eq key ../system.characterInfo.archetype)}}selected{{/if}}>
+              {{archetype.name}}
+            </option>
+          {{/each}}
+        </select>
+      </div>
+      <div class="top-field-group">
+        <label for="dice-pool-maximum">Dice Pool Maximium:</label>
+        <input type="text" id="dice-pool-maximum" name="system.dice_pool_maximum.value" value="{{system.dice_pool_maximum.value}}">
+      </div>
+      <div class="top-field-group">
+        <label for="xp-earned">Total XP Earned:</label>
+        <input type="number" id="xp-earned" name="system.characterInfo.xpEarned" 
+               value="{{system.characterInfo.xpEarned}}" data-dtype="Number">
+      </div>
+      <div class="top-field-group">
+        <label for="xp-unused">Unused XP:</label>
+        <input type="number" id="xp-unused" name="system.characterInfo.xpUnused" 
+               value="{{system.characterInfo.xpUnused}}" data-dtype="Number">
+      </div>
+    </div>
+
+    <hr>
+
+    <!-- Dice Section (6 diamond placeholders) -->
+    <div class="dice-section">
+      <div class="diamond-row">
+        {{#each system.dicepool as |slot id|}}
+        <div class="diamond-slot">
+          <div class="diamond-bg"></div>
+          <div class="diamond-fg">
+            <div class="dice-icon" data-slot-id="{{id}}" data-slot-die-type="{{slot.dietype}}" data-slot-status="{{slot.status}}">
+              {{#if (eq slot.status 'wound')}}
+              <img src="systems/ahrpg/assets/wound_token.svg" class="dice-image">
+              {{/if}}
+              {{#if (eq slot.status 'available')}}
+                {{#if (eq slot.dietype 'normal')}}
+                <img src="systems/ahrpg/assets/normal_die.svg" class="dice-image">
+                {{/if}}
+                {{#if (eq slot.dietype 'horror')}}
+                <img src="systems/ahrpg/assets/horror_die.svg" class="dice-image">
+                {{/if}}
+              {{/if}}
+            </div>
+          </div>
+          <!-- Small icon to indicate dietype -->
+          {{#if (or (eq slot.status 'spent') (eq slot.status 'wound'))}}
+          <div class="dietype-indicator">
+            {{#if (eq slot.dietype 'normal')}}
+            <img src="systems/ahrpg/assets/normal_die.svg" class="dietype-icon">
+            {{/if}}
+            {{#if (eq slot.dietype 'horror')}}
+            <img src="systems/ahrpg/assets/horror_die.svg" class="dietype-icon">
+            {{/if}}
+          </div>
+          {{/if}}
+        </div>
+        {{/each}}
+      </div>
+      <div class="dice-buttons-container">
+        <div class="dice-buttons-col">
+          <button id="dice-refill-button" class="dice-button">Refill</button>
+          <button id="dice-strain-button" class="dice-button">Strain</button>
+        </div>
+        <div class="dice-buttons-col">
+          <button id="dice-horror-button" class="dice-button">Horror</button>
+          <button id="dice-damage-button" class="dice-button">Damage</button>
+        </div>
+        <div class="dice-buttons-col">
+          <button id="dice-heal-button" class="dice-button">Heal</button>
+          <button id="dice-reset-button" class="dice-button">Reset</button>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Skills and Insight Section -->
+    <div class="skills-insight-section">
+      <!-- Skills Panel -->
+      <div class="skills-panel">
+        <h2>Skills</h2>
+        <div class="skills-columns">
+          <!-- Column 1 -->
+          <div class="skills-col">
+            <!-- Header row with "Max" above the smaller circle -->
+            <div class="skill-row header-row">
+              <span class="skill-label"></span>
+              <div class="circle-group">
+                <span class="circle-header circle-header-lg"></span>
+                <span class="circle-header circle-header-sm">Max</span>
+              </div>
+            </div>
+            <div class="skill-row">
+              <span class="skill-label"><label for="system.skills.agi.value" class="resource-label rollable dice-pool-rollable" data-skill-score="{{system.skills.agi.value}}" data-label="{{localize 'AHRPG.Skills.agi.long'}}">{{localize 'AHRPG.Skills.agi.long'}}</label></span>
+              <div class="circle-group">
+                <div class="circle-input circle-input-lg">
+                  <input type="text" maxlength="1" name="system.skills.agi.value" value="{{system.skills.agi.value}}" data-dtype="Number">
+                </div>
+                <div class="circle-input circle-input-sm">
+                  <input type="text" maxlength="1" name="system.skills.agi.max" value="{{system.skills.agi.max}}" data-dtype="Number" readonly>
+                </div>
+              </div>
+            </div>
+            <div class="skill-row">
+              <span class="skill-label"><label for="system.skills.ath.value" class="resource-label rollable dice-pool-rollable" data-skill-score="{{system.skills.ath.value}}" data-label="{{localize 'AHRPG.Skills.ath.long'}}">{{localize 'AHRPG.Skills.ath.long'}}</label></span>
+              <div class="circle-group">
+                <div class="circle-input circle-input-lg">
+                  <input type="text" maxlength="1" name="system.skills.ath.value" value="{{system.skills.ath.value}}" data-dtype="Number">
+                </div>
+                <div class="circle-input circle-input-sm">
+                  <input type="text" maxlength="1" name="system.skills.ath.max" value="{{system.skills.ath.max}}" data-dtype="Number" readonly>
+                </div>
+              </div>
+            </div>
+            <div class="skill-row">
+              <span class="skill-label"><label for="system.skills.wit.value" class="resource-label rollable dice-pool-rollable" data-skill-score="{{system.skills.wit.value}}" data-label="{{localize 'AHRPG.Skills.wit.long'}}">{{localize 'AHRPG.Skills.wit.long'}}</label></span>
+              <div class="circle-group">
+                <div class="circle-input circle-input-lg">
+                  <input type="text" maxlength="1" name="system.skills.wit.value" value="{{system.skills.wit.value}}" data-dtype="Number">
+                </div>
+                <div class="circle-input circle-input-sm">
+                  <input type="text" maxlength="1" name="system.skills.wit.max" value="{{system.skills.wit.max}}" data-dtype="Number" readonly>
+                </div>
+              </div>
+            </div>
+            <div class="skill-row">
+              <span class="skill-label"><label for="system.skills.pre.value" class="resource-label rollable dice-pool-rollable" data-skill-score="{{system.skills.pre.value}}" data-label="{{localize 'AHRPG.Skills.pre.long'}}">{{localize 'AHRPG.Skills.pre.long'}}</label></span>
+              <div class="circle-group">
+                <div class="circle-input circle-input-lg">
+                  <input type="text" maxlength="1" name="system.skills.pre.value" value="{{system.skills.pre.value}}" data-dtype="Number">
+                </div>
+                <div class="circle-input circle-input-sm">
+                  <input type="text" maxlength="1" name="system.skills.pre.max" value="{{system.skills.pre.max}}" data-dtype="Number" readonly>
+                </div>
+              </div>
+            </div>
+            <div class="skill-row">
+              <span class="skill-label"><label for="system.skills.int.value" class="resource-label rollable dice-pool-rollable" data-skill-score="{{system.skills.int.value}}" data-label="{{localize 'AHRPG.Skills.int.long'}}">{{localize 'AHRPG.Skills.int.long'}}</label></span>
+              <div class="circle-group">
+                <div class="circle-input circle-input-lg">
+                  <input type="text" maxlength="1" name="system.skills.int.value" value="{{system.skills.int.value}}" data-dtype="Number">
+                </div>
+                <div class="circle-input circle-input-sm">
+                  <input type="text" maxlength="1" name="system.skills.int.max" value="{{system.skills.int.max}}" data-dtype="Number" readonly>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Column 2 -->
+          <div class="skills-col">
+            <!-- Header row with "Max" above the smaller circle -->
+            <div class="skill-row header-row">
+              <span class="skill-label"></span>
+              <div class="circle-group">
+                <span class="circle-header circle-header-lg"></span>
+                <span class="circle-header circle-header-sm">Max</span>
+              </div>
+            </div>
+            <div class="skill-row">
+              <span class="skill-label"><label for="system.skills.kno.value" class="resource-label rollable dice-pool-rollable" data-skill-score="{{system.skills.kno.value}}" data-label="{{localize 'AHRPG.Skills.kno.long'}}">{{localize 'AHRPG.Skills.kno.long'}}</label></span>
+              <div class="circle-group">
+                <div class="circle-input circle-input-lg">
+                  <input type="text" maxlength="1" name="system.skills.kno.value" value="{{system.skills.kno.value}}" data-dtype="Number">
+                </div>
+                <div class="circle-input circle-input-sm">
+                  <input type="text" maxlength="1" name="system.skills.kno.max" value="{{system.skills.kno.max}}" data-dtype="Number" readonly>
+                </div>
+              </div>
+            </div>
+            <div class="skill-row">
+              <span class="skill-label"><label for="system.skills.res.value" class="resource-label rollable dice-pool-rollable" data-skill-score="{{system.skills.res.value}}" data-label="{{localize 'AHRPG.Skills.res.long'}}">{{localize 'AHRPG.Skills.res.long'}}</label></span>
+              <div class="circle-group">
+                <div class="circle-input circle-input-lg">
+                  <input type="text" maxlength="1" name="system.skills.res.value" value="{{system.skills.res.value}}" data-dtype="Number">
+                </div>
+                <div class="circle-input circle-input-sm">
+                  <input type="text" maxlength="1" name="system.skills.res.max" value="{{system.skills.res.max}}" data-dtype="Number" readonly>
+                </div>
+              </div>
+            </div>
+            <div class="skill-row">
+              <span class="skill-label"><label for="system.skills.mel.value" class="resource-label rollable dice-pool-rollable" data-skill-score="{{system.skills.mel.value}}" data-label="{{localize 'AHRPG.Skills.mel.long'}}">{{localize 'AHRPG.Skills.mel.long'}}</label></span>
+              <div class="circle-group">
+                <div class="circle-input circle-input-lg">
+                  <input type="text" maxlength="1" name="system.skills.mel.value" value="{{system.skills.mel.value}}" data-dtype="Number">
+                </div>
+                <div class="circle-input circle-input-sm">
+                  <input type="text" maxlength="1" name="system.skills.mel.max" value="{{system.skills.mel.max}}" data-dtype="Number" readonly>
+                </div>
+              </div>
+            </div>
+            <div class="skill-row">
+              <span class="skill-label"><label for="system.skills.ran.value" class="resource-label rollable dice-pool-rollable" data-skill-score="{{system.skills.ran.value}}" data-label="{{localize 'AHRPG.Skills.ran.long'}}">{{localize 'AHRPG.Skills.ran.long'}}</label></span>
+              <div class="circle-group">
+                <div class="circle-input circle-input-lg">
+                  <input type="text" maxlength="1" name="system.skills.ran.value" value="{{system.skills.ran.value}}" data-dtype="Number">
+                </div>
+                <div class="circle-input circle-input-sm">
+                  <input type="text" maxlength="1" name="system.skills.ran.max" value="{{system.skills.ran.max}}" data-dtype="Number" readonly>
+                </div>
+              </div>
+            </div>
+            <div class="skill-row">
+              <span class="skill-label"><label for="system.skills.lor.value" class="resource-label rollable dice-pool-rollable" data-skill-score="{{system.skills.lor.value}}" data-label="{{localize 'AHRPG.Skills.lor.long'}}">{{localize 'AHRPG.Skills.lor.long'}}</label></span>
+              <div class="circle-group">
+                <div class="circle-input circle-input-lg">
+                  <input type="text" maxlength="1" name="system.skills.lor.value" value="{{system.skills.lor.value}}" data-dtype="Number">
+                </div>
+                <div class="circle-input circle-input-sm">
+                  <input type="text" maxlength="1" name="system.skills.lor.max" value="{{system.skills.lor.max}}" data-dtype="Number" readonly>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Insight Panel -->
+      <div class="insight-panel">
+        <h2>Insight</h2>
+        <div class="insight-row">
+          <label for="insight-limit">Limit:</label>
+          <input type="number" id="insight-limit" name="system.attributes.insight.max"
+                 value="{{system.attributes.insight.max}}" data-dtype="Number">
+          <label for="insight-current">Current:</label>
+          <input type="number" id="insight-current" name="system.attributes.insight.current"
+                 value="{{system.attributes.insight.current}}" data-dtype="Number">
+        </div>
+        <div class="personality-trait">
+          <label for="personality">Personality Trait:</label>
+          <textarea id="trait" name="system.characterInfo.personality.trait"
+            rows="2" data-dtype="String">{{system.characterInfo.personality.trait}}</textarea>
+        </div>
+        <div class="personality-trait">
+          <label for="positive">Positive:</label>
+          <input type="text" id="positive" name="system.characterInfo.personality.positive"
+             value="{{system.characterInfo.personality.positive}}" data-dtype="String">
+        </div>
+        <div class="personality-trait">
+          <label for="negative">Negative:</label>
+          <input type="text" id="negative" name="system.characterInfo.personality.negative"
+                 value="{{system.characterInfo.personality.negative}}" data-dtype="String">
+        </div>
+      </div>
+    </div>
+
+    <hr>
+
+    <!-- Knacks Section -->
+    <div class="knacks-section">
+      <h2>Knacks</h2>
+      <!-- Tier 1 Knacks -->
+      <div class="knack-row">
+        <label>Tier 1:</label>
+        <textarea name="system.knacks.tier1.0" rows="1">{{system.knacks.tier1.[0]}}</textarea>
+      </div>
+      <div class="knack-row">
+        <label>Tier 1:</label>
+        <textarea name="system.knacks.tier1.1" rows="1">{{system.knacks.tier1.[1]}}</textarea>
+      </div>
+      <div class="knack-row">
+        <label>Tier 1:</label>
+        <textarea name="system.knacks.tier1.2" rows="1">{{system.knacks.tier1.[2]}}</textarea>
+      </div>
+      
+      <!-- Tier 2 Knacks -->
+      <div class="knack-row">
+        <label>Tier 2:</label>
+        <textarea name="system.knacks.tier2.0" rows="1">{{system.knacks.tier2.[0]}}</textarea>
+      </div>
+      <div class="knack-row">
+        <label>Tier 2:</label>
+        <textarea name="system.knacks.tier2.1" rows="1">{{system.knacks.tier2.[1]}}</textarea>
+      </div>
+      
+      <!-- Tier 3 Knacks -->
+      <div class="knack-row">
+        <label>Tier 3:</label>
+        <textarea name="system.knacks.tier3.0" rows="1">{{system.knacks.tier3.[0]}}</textarea>
+      </div>
+      <div class="knack-row">
+        <label>Tier 3:</label>
+        <textarea name="system.knacks.tier3.1" rows="1">{{system.knacks.tier3.[1]}}</textarea>
+      </div>
+      
+      <!-- Tier 4 Knack -->
+      <div class="knack-row">
+        <label>Tier 4:</label>
+        <textarea name="system.knacks.tier4.0" rows="1">{{system.knacks.tier4.[0]}}</textarea>
+      </div>
+    </div>
+
+    <hr>
+
+    <!-- Weapons & Injuries Section -->
+    <div class="weapons-injuries-section">
+      <!-- Weapons Panel (60%) -->
+      <div class="weapons-panel">
+        <h2>Weapons</h2>
+        {{#each system.weapons}}
+          <div class="weapon-item weapon-entry" data-weapon-index="{{@key}}">
+            <div class="weapon-row">
+              <label>Weapon Name:</label>
+              <input type="text" class="weapon-name" name="system.weapons.{{@key}}.name" value="{{this.name}}" />
+            </div>
+            <div class="weapon-row">
+              <label>Skill:</label>
+              <input type="text" class="skill-input" name="system.weapons.{{@key}}.skill" value="{{this.skill}}" />
+              <label>Damage:</label>
+              <input type="text" class="damage-input" name="system.weapons.{{@key}}.damage" value="{{this.damage}}" data-dtype="Number" />
+              <label>Injury Rating:</label>
+              <input type="text" class="injury-input" name="system.weapons.{{@key}}.injury" value="{{this.injury}}" data-dtype="Number" />
+            </div>
+            <div class="weapon-row">
+              <label>Range:</label>
+              <input type="text" class="range-input" name="system.weapons.{{@key}}.range" value="{{this.range}}" />
+              <label>Ammunition:</label>
+              <div class="ammo-circles">
+                {{#each this.ammo}}
+                  <span class="circle {{this}}" data-ammo-index="{{@index}}"></span>
+                {{/each}}
+              </div>
+            </div>
+            <div class="weapon-row">
+              <label>Special Rules:</label>
+              <textarea rows="1" class="weapon-rules" name="system.weapons.{{@key}}.special">{{this.special}}</textarea>
+            </div>
+          </div>
+        {{/each}}
+      </div>
+
+      <!-- Injuries Panel (40%) -->
+      <div class="injuries-panel">
+        <h2>Injuries and Other Effects</h2>
+        <textarea rows="15" placeholder="Record injuries here..." name="system.injuries">{{system.injuries}}</textarea>
+      </div>
+    </div>
+  </div>
+</form>

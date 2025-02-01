@@ -1,0 +1,25 @@
+<svg width="64" height="64" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+  <!-- Rounded square for the die body -->
+  <rect x="4" y="4" width="56" height="56"
+        rx="8" ry="8"
+        fill="#3d7f3d" stroke="#222" stroke-width="2" />
+  
+  <!-- Skull Design -->
+  <!-- 1) Top part of the skull -->
+  <ellipse cx="32" cy="26" rx="12" ry="14" fill="#fff" />
+
+  <!-- 2) Lower jaw -->
+  <path d="M24,38 Q32,48 40,38 Q32,44 24,38" fill="#fff" />
+
+  <!-- 3) Eyes -->
+  <circle cx="28" cy="24" r="3" fill="#000" />
+  <circle cx="36" cy="24" r="3" fill="#000" />
+
+  <!-- 4) Nose -->
+  <path d="M30,28 L32,32 L34,28 Z" fill="#000" />
+
+  <!-- 5) Teeth -->
+  <rect x="28" y="38" width="8" height="2" fill="#000" />
+  <line x1="30" y1="38" x2="30" y2="40" stroke="#000" stroke-width="1" />
+  <line x1="34" y1="38" x2="34" y2="40" stroke="#000" stroke-width="1" />
+</svg>

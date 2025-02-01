@@ -1,0 +1,266 @@
+{
+  "Actor": {
+    "types": ["character", "npc"],
+    "templates": {
+      "base": {
+        "dice_pool_maximum": {
+          "value": 6,
+          "min": 1,
+          "max": 12
+        },
+        "skills": {
+          "agi": {
+            "value": 6,
+            "max": 4
+          },
+          "ath": {
+            "value": 6,
+            "max": 4
+          },
+          "wit": {
+            "value": 6,
+            "max": 4
+          },
+          "pre": {
+            "value": 6,
+            "max": 4
+          },
+          "int": {
+            "value": 6,
+            "max": 4
+          },
+          "kno": {
+            "value": 6,
+            "max": 4
+          },
+          "res": {
+            "value": 6,
+            "max": 4
+          },
+          "mel": {
+            "value": 6,
+            "max": 4
+          },
+          "ran": {
+            "value": 6,
+            "max": 4
+          },
+          "lor": {
+            "value": 6,
+            "max": 4
+          }
+        },
+        "biography": "",
+        "knacks": ["", "", "", "", "", ""],
+        "equipment": ["", "", "", ""],
+        "injuries": ""
+      }
+    },
+    "character": {
+      "templates": ["base"],
+      "characterInfo": {
+        "archetype": "",
+        "xpEarned": 0,
+        "xpUnused": 0,
+        "personality": {
+          "trait": "",
+          "positive": "",
+          "negative": ""
+        }
+      },
+      "attributes": {
+        "insight": {
+          "current": 1,
+          "max": 1
+        }
+      },
+      "dicepool": {
+        "1": {
+          "dietype": "normal",
+          "status": "available"
+        },
+        "2": {
+          "dietype": "normal",
+          "status": "available"
+        },
+        "3": {
+          "dietype": "normal",
+          "status": "available"
+        },
+        "4": {
+          "dietype": "normal",
+          "status": "available"
+        },
+        "5": {
+          "dietype": "normal",
+          "status": "available"
+        },
+        "6": {
+          "dietype": "normal",
+          "status": "available"
+        }
+      },
+      "knacks": {
+        "tier1": ["", "", ""],
+        "tier2": ["", ""],
+        "tier3": ["", ""],
+        "tier4": [""]
+      },
+      "injuries": "",
+      "weapons": {
+        "1": {
+            "name": "",
+            "skill": "",
+            "damage": "",
+            "injury": "",
+            "range": "",
+            "special": "",
+            "ammo": ["available", "available", "available", "available", "available", "available"]
+        },
+        "2": {
+            "name": "",
+            "skill": "",
+            "damage": "",
+            "injury": "",
+            "range": "",
+            "special": "",
+            "ammo": ["available", "available", "available", "available", "available", "available"]
+        },
+        "3": {
+            "name": "",
+            "skill": "",
+            "damage": "",
+            "injury": "",
+            "range": "",
+            "special": "",
+            "ammo": ["available", "available", "available", "available", "available", "available"]
+        }
+      }
+    },
+    "npc": {
+      "templates": ["base"],
+      "dicepool": {
+        "1": {
+          "dietype": "normal",
+          "status": "available"
+        },
+        "2": {
+          "dietype": "normal",
+          "status": "available"
+        },
+        "3": {
+          "dietype": "normal",
+          "status": "available"
+        },
+        "4": {
+          "dietype": "normal",
+          "status": "available"
+        },
+        "5": {
+          "dietype": "normal",
+          "status": "available"
+        },
+        "6": {
+          "dietype": "normal",
+          "status": "available"
+        },
+        "7": {
+          "dietype": "normal",
+          "status": "available"
+        },
+        "8": {
+          "dietype": "normal",
+          "status": "available"
+        },
+        "9": {
+          "dietype": "normal",
+          "status": "available"
+        },
+        "10": {
+          "dietype": "normal",
+          "status": "available"
+        },
+        "11": {
+          "dietype": "normal",
+          "status": "available"
+        },
+        "12": {
+          "dietype": "normal",
+          "status": "available"
+        }
+      }
+    }
+  },
+  "Item": {
+    "types": ["item", "knack", "personality", "archetype"],
+    "templates": {
+      "base": {
+        "description": ""
+      }
+    },
+    "item": {
+      "templates": ["base"],
+      "quantity": 1
+    },
+    "personality": {
+      "templates": ["base"]
+    },
+    "knack": {
+      "templates": ["base"],
+      "tier": 1
+    },
+    "archetype": {
+      "templates": ["base"],
+      "types": {
+        "adventurer": {
+          "name": "Adventurer",
+          "skillmax": {
+            "agi": 3, "ath": 3, "wit": 2, "pre": 4, "int": 4, "kno": 4, "res": 4, "mel": 4, "ran": 3, "lor": 4
+          }
+        },
+        "believer": {
+          "name": "Believer",
+          "skillmax": {
+            "agi": 4, "ath": 4, "wit": 4, "pre": 2, "int": 4, "kno": 3, "res": 3, "mel": 4, "ran": 4, "lor": 3
+          }
+        },
+        "guardian": {
+          "name": "Guardian",
+          "skillmax": {
+            "agi": 4, "ath": 2, "wit": 4, "pre": 3, "int": 4, "kno": 4, "res": 3, "mel": 3, "ran": 4, "lor": 4
+          }
+        },
+        "hunter": {
+          "name": "Hunter",
+          "skillmax": {
+            "agi": 2, "ath": 4, "wit": 4, "pre": 4, "int": 3, "kno": 4, "res": 4, "mel": 3, "ran": 3, "lor": 4
+          }
+        },
+        "mystic": {
+          "name": "Mystic",
+          "skillmax": {
+            "agi": 4, "ath": 4, "wit": 4, "pre": 3, "int": 3, "kno": 3, "res": 4, "mel": 4, "ran": 4, "lor": 2
+          }
+        },
+        "rogue": {
+          "name": "Rogue",
+          "skillmax": {
+            "agi": 3, "ath": 4, "wit": 3, "pre": 4, "int": 2, "kno": 3, "res": 4, "mel": 4, "ran": 4, "lor": 4
+          }
+        },
+        "seeker": {
+          "name": "Seeker",
+          "skillmax": {
+            "agi": 4, "ath": 4, "wit": 3, "pre": 4, "int": 4, "kno": 2, "res": 4, "mel": 4, "ran": 3, "lor": 3
+          }
+        },
+        "survivor": {
+          "name": "Survivor",
+          "skillmax": {
+            "agi": 4, "ath": 3, "wit": 4, "pre": 4, "int": 3, "kno": 4, "res": 2, "mel": 3, "ran": 4, "lor": 4
+          }
+        }
+      }
+    }
+  }
+}
