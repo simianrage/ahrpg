@@ -1,6 +1,6 @@
 # AHRPG System
 
-This is a rudimentary system for the Arkham Horror RPG.
+This is a rudimentary Foundry VTT game system for the Arkham Horror RPG.
 
 ## Project Scope
 
